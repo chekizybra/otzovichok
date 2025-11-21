@@ -5,6 +5,53 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FEF8F8"
     tools:context=".MainTab">
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="138dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:text="Главная "
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/to_profile_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="188dp"
+        android:layout_marginTop="28dp"
+        android:autoText="false"
+        android:background="@drawable/ic_profile"
+        android:backgroundTint="#040404"
+        android:backgroundTintMode="multiply"
+        android:textColorLink="#020202"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="376dp"
+        android:layout_height="503dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <Button
+        android:id="@+id/to_write_button"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#53B84A"
+        android:text="Написать"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 </androidx.constraintlayout.widget.ConstraintLayout>

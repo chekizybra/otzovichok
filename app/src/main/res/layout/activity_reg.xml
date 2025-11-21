@@ -5,6 +5,106 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/log_reg_background"
     tools:context=".Reg">
 
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="304dp"
+        android:layout_height="400dp"
+        android:background="@drawable/log_reg_tabs_backg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.303">
+
+        <LinearLayout
+            android:layout_width="255dp"
+            android:layout_height="359dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="25dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/emailTextField"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="30dp"
+                android:background="#FFFFFF"
+                android:ems="10"
+                android:hint="Почта"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/fioTextField"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="30dp"
+                android:background="#FFFFFF"
+                android:ems="10"
+                android:hint="ФИО"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/passwordRegTextField"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="30dp"
+                android:background="#FFFFFF"
+                android:ems="10"
+                android:hint="Пароль"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/passwordReplayTextField"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="30dp"
+                android:background="#FFFFFF"
+                android:ems="10"
+                android:hint="Повторите пароль"
+                android:inputType="text" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="206dp"
+        android:layout_height="153dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="100dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout">
+
+        <Button
+            android:id="@+id/regButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:backgroundTint="#000000"
+            android:text="Регистрация"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/toLogButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#000000"
+            android:text="Войти"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="296dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginBottom="12dp"
+        android:text="Регистрация"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
