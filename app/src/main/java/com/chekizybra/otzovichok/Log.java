@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,6 +26,8 @@ public class Log extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_log);
 
         emailTF = findViewById(R.id.emailTextField);
         passwordTF = findViewById(R.id.passwordTextField);
@@ -48,24 +51,21 @@ public class Log extends AppCompatActivity {
 
         Zaprosi api = BdConnect.getInstance().create(Zaprosi.class);
 
-        Call<List<ClientInfo>> call = api.getClientInfo(emailTF.getText().toString(), apiKey);
+        Call<List<ClientInfo>> call = api.getClientInfo("Bearer " + apiKey, apiKey, "eq." + emailTF.getText().toString());
 
         call.enqueue(new Callback<List<ClientInfo>>() {
             @Override
             public void onResponse(Call<List<ClientInfo>> call, Response<List<ClientInfo>> response) {
                 if (response.isSuccessful()) {
-
                     List<ClientInfo> list = response.body();
-
                     if (list != null && !list.isEmpty()) {
-
                         ClientInfo ci = list.get(0);
 
                         int id = ci.id;
                         String fio = ci.fio;
                         String password = ci.password;
-
-                        if(passwordTF.getText() == password){
+                        System.out.println(passwordTF.getText().toString());
+                        if(passwordTF.getText().toString().equals(password)){
                             SessionData.currentUserId = id;
                             SessionData.currentUserFio = fio;
 
@@ -73,7 +73,7 @@ public class Log extends AppCompatActivity {
                             startActivity(intent);
                         }
                         else {
-                            passwordTF.setTextColor(Integer.parseInt("#FF0000"));
+                            Toast.makeText(getApplicationContext(), "не тот пороль", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
