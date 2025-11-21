@@ -1,6 +1,8 @@
 package com.chekizybra.otzovichok;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,15 +21,26 @@ import retrofit2.Response;
 
 public class Account extends AppCompatActivity {
 
-    private TextView allCommTextField;
-    private String apiKey = "YOUR_ANON_KEY_HERE";
+    private TextView allCommTF, fioTF;
+
+    private Button toMainB;
+    private String apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4eGhodnB5bG5pdWl3Z2Vyc2x0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM1NTgzNzQsImV4cCI6MjA3OTEzNDM3NH0.ywOjtXlQZP-llJUCYnm8RSl2AiN0Dh6zE6Dg6vzFm1Y";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
 
-        allCommTextField = findViewById(R.id.allCommTextField);
+        fioTF = findViewById(R.id.nameTextField);
+        allCommTF = findViewById(R.id.allCommTextField);
+        toMainB = findViewById(R.id.to_main_button);
+
+        fioTF.setText(SessionData.currentUserFio);
+
+        toMainB.setOnClickListener(v -> {
+            Intent intent = new Intent(Account.this, MainTab.class);
+            startActivity(intent);
+        });
 
         loadUserComments();
     }
@@ -35,9 +48,8 @@ public class Account extends AppCompatActivity {
     private void loadUserComments() {
         Zaprosi api = BdConnect.getInstance().create(Zaprosi.class);
 
-        // фильтруем по текущему пользователю
-        Call<List<Comment>> call = api.getComment("Bearer " + apiKey, apiKey, SessionData.currentUserId)
-        );
+        //фильтр по текущему пользователю
+        Call<List<Comment>> call = api.getComment("Bearer " + apiKey, apiKey, String.valueOf(SessionData.currentUserId));
 
         call.enqueue(new Callback<List<Comment>>() {
             @Override
@@ -47,16 +59,12 @@ public class Account extends AppCompatActivity {
                     for (Comment com : response.body()) {
                         sb.append(com.product_name + "\n").append(com.comment).append("\n\n");
                     }
-                    allCommTextField.setText(sb.toString());
-                } else {
-                    Toast.makeText(Account.this, "Не удалось загрузить отзывы: " + response.code(), Toast.LENGTH_SHORT).show();
+                    allCommTF.setText(sb.toString());
                 }
             }
 
             @Override
-            public void onFailure(Call<List<Comment>> call, Throwable t) {
-                Toast.makeText(Account.this, "Сетевая ошибка: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
+            public void onFailure(Call<List<Comment>> call, Throwable t) {}
         });
     }
 }

@@ -33,7 +33,7 @@ public interface Zaprosi {
     );
 
     @GET("rest/v1/comments")
-    Call<List<ClientInfo>> getComment(
+    Call<List<Comment>> getComment(
             @Header("Authorization") String bearer,
             @Header("apiKey") String apiKey,
             @Query("user_id") String userId

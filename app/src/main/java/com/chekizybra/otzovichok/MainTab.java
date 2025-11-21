@@ -36,7 +36,7 @@ public class MainTab extends AppCompatActivity {
             startActivity(intent);
         });
 
-        toAccount.setOnClickListener(v -> {
+        newComm.setOnClickListener(v -> {
             Intent intent = new Intent(MainTab.this, WriteComment.class);
             startActivity(intent);
         });
