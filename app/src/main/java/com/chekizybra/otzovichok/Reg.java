@@ -87,16 +87,11 @@ public class Reg extends AppCompatActivity {
                     Toast.makeText(Reg.this, "Регистрация успешна", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(Reg.this, Log.class));
                     finish();
-                } else {
-                    System.out.println(response.toString());
-                    Toast.makeText(Reg.this, "Ошибка регистрации: " + response.code(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(Reg.this, "Сетевая ошибка: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
+            public void onFailure(Call<Void> call, Throwable t) {}
         });
     }
 

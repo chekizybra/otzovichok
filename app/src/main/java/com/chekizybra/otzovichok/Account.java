@@ -49,7 +49,7 @@ public class Account extends AppCompatActivity {
         Zaprosi api = BdConnect.getInstance().create(Zaprosi.class);
 
         //фильтр по текущему пользователю
-        Call<List<Comment>> call = api.getComment("Bearer " + apiKey, apiKey, String.valueOf(SessionData.currentUserId));
+        Call<List<Comment>> call = api.getComment("Bearer " + apiKey, apiKey, "eq." + String.valueOf(SessionData.currentUserId));
 
         call.enqueue(new Callback<List<Comment>>() {
             @Override

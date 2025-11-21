@@ -38,7 +38,7 @@ public interface Zaprosi {
             @Header("apiKey") String apiKey,
             @Query("user_id") String userId
     );
-    @GET("rest/v1/getMainComment") // заменяй на твою таблицу с комментариями
+    @GET("rest/v1/comments") // заменяй на твою таблицу с комментариями
     Call<List<Comment>> getComments(
             @Header("Authorization") String bearer,
             @Header("apiKey") String apiKey
