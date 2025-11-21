@@ -22,7 +22,7 @@ public class WriteComment extends AppCompatActivity {
 
     private TextView commentNameTextField, commentTextTextField;
     private Button toWriteButton;
-    private String apiKey = "YOUR_ANON_KEY_HERE";
+    String apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4eGhodnB5bG5pdWl3Z2Vyc2x0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM1NTgzNzQsImV4cCI6MjA3OTEzNDM3NH0.ywOjtXlQZP-llJUCYnm8RSl2AiN0Dh6zE6Dg6vzFm1Y";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
