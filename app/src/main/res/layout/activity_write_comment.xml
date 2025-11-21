@@ -9,27 +9,38 @@
     tools:context=".WriteComment">
 
     <Button
-        android:id="@+id/to_write_button"
-        android:layout_width="140dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
+        android:id="@+id/toMainButton"
+        android:layout_width="136dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="12dp"
         android:backgroundTint="#53B84A"
-        android:text="Главную"
+        android:text="Главная"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintEnd_toStartOf="@+id/applyButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/commentTextTextField" />
 
-    <TextView
+    <Button
+        android:id="@+id/applyButton"
+        android:layout_width="192dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#53B84A"
+        android:text="Подтвердить"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/commentTextTextField" />
+
+    <EditText
         android:id="@+id/commentTextTextField"
         android:layout_width="381dp"
         android:layout_height="498dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:hint="Текст отзыва"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/commentNameTextField" />
 
@@ -45,15 +56,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <EditText
         android:id="@+id/commentNameTextField"
         android:layout_width="382dp"
         android:layout_height="47dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:hint="Наименование объекта"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 </androidx.constraintlayout.widget.ConstraintLayout>

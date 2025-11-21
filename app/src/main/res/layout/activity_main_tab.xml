@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <Button
-        android:id="@+id/to_write_button"
+        android:id="@+id/toWriteButton"
         android:layout_width="140dp"
         android:layout_height="60dp"
         android:layout_marginTop="28dp"

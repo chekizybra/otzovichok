@@ -1,5 +1,6 @@
 package com.chekizybra.otzovichok;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -20,8 +21,8 @@ import retrofit2.Response;
 
 public class WriteComment extends AppCompatActivity {
 
-    private TextView commentNameTextField, commentTextTextField;
-    private Button toWriteButton;
+    private TextView commentNameTF, commentTextTF;
+    private Button toMainB, applyB;
     String apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4eGhodnB5bG5pdWl3Z2Vyc2x0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM1NTgzNzQsImV4cCI6MjA3OTEzNDM3NH0.ywOjtXlQZP-llJUCYnm8RSl2AiN0Dh6zE6Dg6vzFm1Y";
 
     @Override
@@ -29,23 +30,30 @@ public class WriteComment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write_comment);
 
-        commentNameTextField = findViewById(R.id.commentNameTextField);
-        commentTextTextField = findViewById(R.id.commentTextTextField);
-        toWriteButton = findViewById(R.id.to_write_button);
+        commentNameTF = findViewById(R.id.commentNameTextField);
+        commentTextTF = findViewById(R.id.commentTextTextField);
+        toMainB = findViewById(R.id.toMainButton);
+        applyB = findViewById(R.id.applyButton);
 
-        toWriteButton.setOnClickListener(v -> submitComment());
+        toMainB.setOnClickListener(v -> {
+            startActivity(new Intent(WriteComment.this, MainTab.class));
+            finish();
+        });
+
+        applyB.setOnClickListener(v ->
+                writeComment());
     }
 
-    private void submitComment() {
-        String name = commentNameTextField.getText().toString();
-        String text = commentTextTextField.getText().toString();
+    private void writeComment() {
+        String name = commentNameTF.getText().toString();
+        String text = commentTextTF.getText().toString();
 
         Zaprosi api = BdConnect.getInstance().create(Zaprosi.class);
 
         Map<String, String> body = new HashMap<>();
         body.put("user_id", String.valueOf(SessionData.currentUserId));
-        body.put("name", name);
-        body.put("text", text);
+        body.put("product_name", name);
+        body.put("comment", text);
 
         Call<Void> call = api.addComment("Bearer " + apiKey, apiKey, body);
 
@@ -53,18 +61,13 @@ public class WriteComment extends AppCompatActivity {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if(response.isSuccessful()){
-                    Toast.makeText(WriteComment.this, "Комментарий добавлен", Toast.LENGTH_SHORT).show();
-                    commentNameTextField.setText("");
-                    commentTextTextField.setText("");
-                } else {
-                    Toast.makeText(WriteComment.this, "Ошибка: " + response.code(), Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(WriteComment.this, MainTab.class));
+                    finish();
                 }
             }
 
             @Override
-            public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(WriteComment.this, "Сетевая ошибка: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
+            public void onFailure(Call<Void> call, Throwable t) {}
         });
     }
 }

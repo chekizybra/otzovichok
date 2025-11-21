@@ -29,7 +29,7 @@ public class MainTab extends AppCompatActivity {
 
         commentsTF = findViewById(R.id.allComments);
         toAccount = findViewById(R.id.to_profile_button);
-        newComm = findViewById(R.id.to_write_button);
+        newComm = findViewById(R.id.toWriteButton);
 
         toAccount.setOnClickListener(v -> {
             Intent intent = new Intent(MainTab.this, Account.class);
@@ -53,6 +53,7 @@ public class MainTab extends AppCompatActivity {
             public void onResponse(Call<List<Comment>> call, Response<List<Comment>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     StringBuilder sb = new StringBuilder();
+                    System.out.println(response.toString());
                     for (Comment com : response.body()) {
                         sb.append(com.product_name+"\n").append(com.comment).append("\n\n");
                     }
