@@ -51,7 +51,6 @@ public class Account extends AppCompatActivity {
         //фильтр по текущему пользователю
         Call<List<Comment>> call = api.getComment("Bearer " + apiKey, apiKey, "eq." + String.valueOf(SessionData.currentUserId));
 
-
         call.enqueue(new Callback<List<Comment>>() {
             @Override
             public void onResponse(Call<List<Comment>> call, Response<List<Comment>> response) {
