@@ -12,33 +12,36 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface Zaprosi {
+    //запрос для входа
     @GET("rest/v1/users")
     Call<List<ClientInfo>> getClientInfo(
             @Header("Authorization") String bearer,
             @Header("apiKey") String apiKey,
             @Query("email") String email
     );
+    //запрос для регистрации
     @POST("rest/v1/users")
     Call<Void> register(
             @Header("Authorization") String bearer,
             @Header("apiKey") String apiKey,
             @Body Map<String, String> body
     );
-
+    //запрос для добавления комментария
     @POST("rest/v1/comments")
     Call<Void> addComment(
             @Header("Authorization") String bearer,
             @Header("apiKey") String apiKey,
             @Body Map<String, String> body
     );
-
+    //запрос для получения комментария по user_id
     @GET("rest/v1/comments")
     Call<List<Comment>> getComment(
             @Header("Authorization") String bearer,
             @Header("apiKey") String apiKey,
             @Query("user_id") String userId
     );
-    @GET("rest/v1/comments") // заменяй на твою таблицу с комментариями
+    //запрос для получения всех комментариев
+    @GET("rest/v1/comments")
     Call<List<Comment>> getComments(
             @Header("Authorization") String bearer,
             @Header("apiKey") String apiKey
