@@ -17,14 +17,6 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tvCategory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Категория"
-        android:textSize="14sp"
-        android:layout_marginTop="2dp" />
-
-    <TextView
         android:id="@+id/tvComment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
