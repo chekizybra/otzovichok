@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -57,7 +56,7 @@ public class Account extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     StringBuilder sb = new StringBuilder();
                     for (Comment com : response.body()) {
-                        sb.append(com.product_name + "\n").append(com.comment).append("\n\n");
+                        sb.append(com.title + "\n").append(com.comment).append("\n\n");
                     }
                     allCommTF.setText(sb.toString());
                 }

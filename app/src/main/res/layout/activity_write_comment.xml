@@ -12,35 +12,40 @@
         android:id="@+id/toMainButton"
         android:layout_width="136dp"
         android:layout_height="55dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="36dp"
         android:backgroundTint="#53B84A"
         android:text="Главная"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/applyButton"
+        app:layout_constraintHorizontal_bias="0.225"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/commentTextTextField" />
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+        app:layout_constraintVertical_bias="0.466" />
 
     <Button
         android:id="@+id/applyButton"
         android:layout_width="192dp"
         android:layout_height="54dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="12dp"
         android:backgroundTint="#53B84A"
         android:text="Подтвердить"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/commentTextTextField" />
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+        app:layout_constraintVertical_bias="0.451" />
 
     <EditText
         android:id="@+id/commentTextTextField"
-        android:layout_width="381dp"
-        android:layout_height="498dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="376dp"
+        android:layout_height="342dp"
+        android:layout_marginTop="32dp"
         android:hint="Текст отзыва"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintHorizontal_bias="0.457"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/commentNameTextField" />
 
@@ -48,23 +53,41 @@
         android:id="@+id/textView8"
         android:layout_width="260dp"
         android:layout_height="48dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:text="Написать отзыв"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.105"
+        app:layout_constraintHorizontal_bias="0.092"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/commentNameTextField"
         android:layout_width="382dp"
         android:layout_height="47dp"
         android:layout_marginTop="16dp"
-        android:hint="Наименование объекта"
-        android:textSize="16sp"
+        android:gravity="center_vertical"
+        android:paddingStart="8dp"
+        android:text="Название продукта"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="244dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="28dp"
+        android:background="#001D1D1D"
+        android:backgroundTint="#F8CC28"
+        android:numStars="10"
+        android:rating="1"
+        android:stepSize="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.101"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/commentTextTextField" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

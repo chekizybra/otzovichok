@@ -63,7 +63,7 @@ public class Log extends AppCompatActivity {
 
                         int id = ci.id;
                         String fio = ci.fio;
-                        String password = ci.password;
+                        String password = ci.pasword;
                         System.out.println(passwordTF.getText().toString());
                         if(passwordTF.getText().toString().equals(password)){
                             SessionData.currentUserId = id;

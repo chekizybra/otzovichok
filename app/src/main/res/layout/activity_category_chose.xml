@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FEF8F8">
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Выбор категории"
+        android:textSize="32sp"
+        android:layout_gravity="center_horizontal"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <AutoCompleteTextView
+            android:id="@+id/mainCategoryField"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="56dp"
+            android:hint="Главная категория"
+            android:background="@android:drawable/edit_text"
+            android:inputType="text"
+            android:textSize="16sp"/>
+
+        <Button
+            android:id="@+id/addMainCategoryBtn"
+            android:layout_width="64dp"
+            android:layout_height="56dp"
+            android:text="+"
+            android:textSize="28sp"
+            android:backgroundTint="#53B84A"/>
+    </LinearLayout>
+
+    <!-- Контейнер подкатегорий -->
+    <LinearLayout
+        android:id="@+id/subCategoriesContainer"
+        android:layout_width="match_parent"
+        android:layout_height="347dp"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical" />
+
+    <EditText
+        android:id="@+id/productNameField"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:drawable/edit_text"
+        android:hint="Наименование товара"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/addSubCategoryRow"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="Добавить подкатегорию"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#53B84A"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="56dp"
+            android:text="Назад"
+            android:backgroundTint="#53B84A"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/applyBtn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="56dp"
+            android:text="Подтвердить"
+            android:backgroundTint="#53B84A"
+            android:textSize="20sp"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+</LinearLayout>
